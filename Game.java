@@ -11,17 +11,21 @@ public class Game {
 
 	public int move(char player) {
 		for (int i = 0; i < i_boardSize; i++) {
+			if (board.charAt(i) == '-') 
+				return i;
+		}	
+		return -1;
+	}
+	
+	public int winningMove(char player){
+		for (int i = 0; i < i_boardSize; i++) {
 			if (board.charAt(i) == '-') {
 				Game game = play(i, player);
 				if (game.winner() == player) 
 					return i;
 			}
+			
 		}
-
-		for (int i = 0; i < i_boardSize; i++) {
-			if (board.charAt(i) == '-') 
-				return i;
-		}	
 		return -1;
 	}
 

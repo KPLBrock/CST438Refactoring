@@ -21,7 +21,7 @@ public class GameTest {
 	@Test
 	public void testFindWinningMove() {
 		Game game = new Game("XO-XX-OOX");
-		assertEquals(5, game.move('X'));
+		assertEquals(5, game.winningMove('X'));
 	}
 
 	@Test
