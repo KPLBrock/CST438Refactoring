@@ -25,8 +25,8 @@ public class Game {
 		return -1;
 	}
 
-	public Game play(int i, char player) {
-		return new Game(this.board, i, player);
+	public Game play(int position, char player) {
+		return new Game(this.board, position, player);
 	}
 
 	public char winner() {
