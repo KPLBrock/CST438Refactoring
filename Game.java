@@ -3,14 +3,15 @@ public class Game {
 	public int i_boardSize = 9;
 	public Game(String s) {board = new StringBuffer(s);}
 
-	public Game(StringBuffer s, int position, char player) {
+	public Game(StringBuffer s, int position, char player, int boardSize) {
 		board = new StringBuffer();
 		board.append(s);
 		board.setCharAt(position, player);
+		i_boardSize = boardSize;
 	}
 
 	public int move(char player) {
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < i_boardSize; i++) {
 			if (board.charAt(i) == '-') 
 				return i;
 		}	
@@ -18,7 +19,7 @@ public class Game {
 	}
 	
 	public int winningMove(char player){
-		for (int i = 0; i < 9; i++) {
+		for (int i = 0; i < i_boardSize; i++) {
 			if (board.charAt(i) == '-') {
 				Game game = play(i, player);
 				if (game.winner() == player) 
@@ -30,7 +31,7 @@ public class Game {
 	}
 
 	public Game play(int position, char player) {
-		return new Game(this.board, position, player);
+		return new Game(this.board, position, player, i_boardSize);
 	}
 
 	public char winner() {
