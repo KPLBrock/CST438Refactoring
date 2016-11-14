@@ -32,7 +32,18 @@ public class GameTest {
 	
 	@Test
 	public void testVerticalWinConditions(){
-		Game game = new Game("X--X--X--");
+		Game game = new Game("-X--X--X-");
+		assertEquals('X', game.winner());
+	}
+	
+	@Test
+	public void testSizedGameBoards(){
+		StringBuffer board = new StringBuffer("-X-X");
+		Game game = new Game(board, 0, '-', 2);
+		assertEquals('X', game.winner());
+		
+		board = new StringBuffer("-X-X-X-X-X-X-X-X");
+		game = new Game(board, 0, '-', 4);
 		assertEquals('X', game.winner());
 	}
 }
