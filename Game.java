@@ -35,31 +35,19 @@ public class Game {
 	}
 
 	public char winner() {
-		if (board.charAt(0) != '-' 
-            && board.charAt(0) == board.charAt(1) 
-            && board.charAt(1) == board.charAt(2))
-			return board.charAt(0);
-		if (board.charAt(3) != '-' 
-            && board.charAt(3) == board.charAt(4) 
-            && board.charAt(4) == board.charAt(5))
-			return board.charAt(3);
-		if (board.charAt(6) != '-' 
-            && board.charAt(6) == board.charAt(7) 
-            && board.charAt(7) == board.charAt(8))
-			return board.charAt(6);
 		
-		if (board.charAt(0) != '-' 
-	            && board.charAt(0) == board.charAt(3) 
-	            && board.charAt(3) == board.charAt(6))
-				return board.charAt(0);
-		if (board.charAt(1) != '-' 
-	            && board.charAt(1) == board.charAt(4) 
-	            && board.charAt(4) == board.charAt(7))
-				return board.charAt(1);
-		if (board.charAt(2) != '-' 
-	            && board.charAt(2) == board.charAt(5) 
-	            && board.charAt(5) == board.charAt(8))
-				return board.charAt(2);
+		for (int i = 0; i < i_boardSize; i++){
+			if(i % 3 == 0 && board.charAt(i) != '-' 
+				&& board.charAt(i) == board.charAt(i + 1) 
+		        && board.charAt(i + 1) == board.charAt(i + 2))
+				return board.charAt(i);
+			
+			if(i < 3 && board.charAt(i) != '-' 
+					&& board.charAt(i) == board.charAt(i + 3) 
+			        && board.charAt(i + 3) == board.charAt(i + 6))
+					return board.charAt(i);
+
+		}
 		return '-';
 	}
 }
