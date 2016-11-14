@@ -29,4 +29,10 @@ public class GameTest {
 		Game game = new Game("---XXX---");
 		assertEquals('X', game.winner());
 	}
+	
+	@Test
+	public void testVerticalWinConditions(){
+		Game game = new Game("X--X--X--");
+		assertEquals('X', game.winner());
+	}
 }

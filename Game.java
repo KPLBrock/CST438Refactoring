@@ -46,6 +46,19 @@ public class Game {
             && board.charAt(6) == board.charAt(7) 
             && board.charAt(7) == board.charAt(8))
 			return board.charAt(6);
+		
+		if (board.charAt(0) != '-' 
+	            && board.charAt(0) == board.charAt(3) 
+	            && board.charAt(3) == board.charAt(6))
+				return board.charAt(0);
+		if (board.charAt(1) != '-' 
+	            && board.charAt(1) == board.charAt(4) 
+	            && board.charAt(4) == board.charAt(7))
+				return board.charAt(1);
+		if (board.charAt(2) != '-' 
+	            && board.charAt(2) == board.charAt(5) 
+	            && board.charAt(5) == board.charAt(8))
+				return board.charAt(2);
 		return '-';
 	}
 }
